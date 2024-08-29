@@ -8,6 +8,8 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="../sources/logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -16,15 +18,40 @@
 <body>
 
     <!-- Image and text -->
-    <nav class="navbar navbar-light bg-body-tertiary shadow-sm">
+    <nav class="navbar fixed-top navbar-light bg-light shadow-sm">
         <div class="container-fluid d-flex justify-content-center">
-        <a class="navbar-brand d-flex align-itens-center" href="#">
-            <img src="../sources/logo.png" class="me-2 my-auto" height="30" alt="MDB Logo" loading="lazy"/>
-            <p class="m-0 fs-4">Sustainability Scan</p>
-        </a>
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="../sources/logo.png" class="me-2 my-auto" height="30" alt="Logo" loading="lazy" />
+                <p class="m-0 fs-4">Sustainability Scan</p>
+            </a>
         </div>
     </nav>
+    
 
+    <section id="session">
+        <div class="container">
+            <h1 class="title text-white display-2 fw-bold text-center text-md-start">
+                Sustainability Scan
+            </h1>
+            <p class="fs-3 fw-bolder text-white text-center text-md-start">
+                Escolha melhor, consuma consciente.
+            </p>
+        </div>
+    </section>
+    <section class="pt-5 pb-5">
+        <div class="container pt-5 mt-5 d-flex flex-column gap-5">
+            <h1 class="title display-3 text-success text-center">
+                Como Utilizar
+            </h1>
+        
+            <p class="fs-5 text-center">
+                É muito simples! Digite o nome do produto que você deseja avaliar e nós fazemos o resto. Nossa IA, Gemini, processa o nome fornecido e retorna uma série de informações sobre a sustentabilidade do seu produto, incluindo a pegada de carbono estimada, o tempo aproximado de decomposição e impactos sociais.
+            </p>
+        </div>
+        
+    </section>
+    
+    
     <script>
          AOS.init();
     </script>
