@@ -25,7 +25,7 @@ def dados_produto():
         return jsonify(result)
 
     # Prompt único para obter todos os dados
-    prompt = (f"Com base no nome do produto [{produto}], forneça as seguintes informações:\n"
+    prompt = (f"Com base no nome do item [{produto}], forneça as seguintes informações:\n"
               f"1. Uma estimativa direta do tempo médio de decomposição. Exemplo: 'Entre 20 e 30 anos.'. Considere o tipo de material geralmente associado a este tipo de produto e qualquer informação conhecida sobre a decomposição desse material. Se o produto é composto por mais de um material, forneça uma estimativa baseada no material mais predominante.\n"
               f"2. Responda 1 se o produto for reciclavel e 0 se não for.\n"
               f"3. Forneça uma estimativa da pegada de carbono do produto.\n"

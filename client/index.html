@@ -40,7 +40,7 @@
             </p>
         </div>
     </section>
-    <section class="pt-5 pb-5">
+    <section class="pt-5 pb-5 mb-5">
         <div class="container pt-5 mt-5 d-flex flex-column gap-5">
             <h1 class="title display-3 text-success text-center">
                 Como Utilizar
@@ -52,7 +52,7 @@
         </div>
 
         <div class="container pt-5 mt-5 d-flex gap-5" id="formulario">
-            <form class="tamanho border rounded border-2 p-5">
+            <form class="tamanho border rounded border-2 p-5" id="input">
                 <fieldset >
                   <legend class="text-success">Digite aqui o nome do produto</legend>
                   <div class="mb-3">
@@ -64,27 +64,85 @@
               </form>
 
               <div class="tamanho-2" id="dados_api">
-                    <h1 class="text-success" id="titulo"></h1><br>
-                    <p class="text-success fw-bold fs-5 m-0">Decomposição estimada:</p>
-                    <p class="text-secondary" id="decomposição"></p>
-                    <p id="reciclavel" class="fs-5 fw-bold"></p>
-                    <p class="text-success fw-bold fs-5 m-0">Pegada de Carbono:</p>
-                    <p class="text-secondary" id="carbono"></p>
-                    <p class="text-success fw-bold fs-5 m-0">Impacto Social:</p>
-                    <p class="text-secondary" id="impacto"></p>
+                    <div id="itens">
+                        <h1 class="text-success" id="titulo"></h1><br>
+                        <p class="text-success fw-bold fs-5 m-0">Decomposição estimada:</p>
+                        <p class="text-secondary" id="decomposição"></p>
+                        <p id="reciclavel" class="fs-5 fw-bold"></p>
+                        <p class="text-success fw-bold fs-5 m-0">Pegada de Carbono:</p>
+                        <p class="text-secondary" id="carbono"></p>
+                        <p class="text-success fw-bold fs-5 m-0">Impacto Social:</p>
+                        <p class="text-secondary" id="impacto"></p>
+                    </div>
+
+                    <div class="loading-wrapper">
+                        <div class="loading-spinner"></div>
+                    </div>
 
 
               </div>
         </div>
         
     </section>
+
+
+    <footer class="bg-body-tertiary text-center text-lg-start">
+        <div class="container p-4">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Aviso Importante!</h5>
+      
+              <p>
+                Todo o conteúdo gerado a partir das pesquisas utiliza inteligência artificial, portanto, está sujeito a erros e divergências. Este projeto foi desenvolvido como parte de um trabalho acadêmico, e não nos responsabilizamos por quaisquer inconsistências ou falhas geradas pela IA.
+                Reforçamos que o objetivo do projeto sempre foi educacional, por isso, disponibilizamos o código do projeto como open source, assim como a API criada, para qualquer finalidade, seja ela lucrativa ou não.
+              </p>
+            </div>
+      
+            
+          </div>
+        </div>
+      
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+            <a data-mdb-ripple-init class="btn btn-link btn-floating btn-lg text-body" href="#!" role="button" data-mdb-ripple-color="dark"><i class="fab fa-github"></i><a>
+            Repositório/Documentação:
+            <a class="text-body" target="_blank" href="https://github.com/ArthurRezendee/Projeto-Sustentabilidade">https://github.com/ArthurRezendee/Projeto-Sustentabilidade</a>
+        </div>
+      </footer>
+
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="myToast" class="toast bg-danger text-white" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-danger text-white">
+                <strong class="me-auto">Atenção!</strong>
+                <small class="text-white">Agora</small>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+              Favor inserir o nome de algum produto para prosseguir!
+            </div>
+        </div>
+    </div>
+    
     
     
     <script>
 
-        
+        $(document).ready(function(){
+            $('.loading-wrapper').hide()
+            $("#itens").hide()
+        })
+
+    
         function enviar(){
             let produto = $('#produto').val().trim()
+            if(produto == ""){
+                var toastElement = document.getElementById('myToast');
+                var toast = new bootstrap.Toast(toastElement);
+                toast.show();
+                return
+            }
+            $('#enviar').attr('disabled', true)
+            $('.loading-wrapper').show()
+            $("#itens").hide()
 
             instance_api.post('/',{
                 produto
@@ -103,6 +161,11 @@
                 $('#decomposição').text(dados.decomposicao)
                 $('#carbono').text(dados.pegada_carbono)
                 $("#impacto").html(marked.parse(dados.impacto_social).replaceAll("<h2>","<strong>").replaceAll("</h2>","</strong>"))
+                $('#enviar').attr('disabled', false)
+
+                $('.loading-wrapper').hide()
+                $("#itens").show()
+
             })
         }
 
