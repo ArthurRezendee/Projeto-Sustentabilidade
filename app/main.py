@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 load_dotenv()
@@ -7,6 +8,7 @@ import google.generativeai as genai
 genai.configure(api_key=os.environ['API_KEY'])
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/ong/', methods=['POST'])
 def dados_produto():

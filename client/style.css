@@ -12,3 +12,34 @@
     padding: 20px; 
 }
 
+.tamanho{
+    width: 50%;
+}
+
+.tamanho-2{
+    width: 50%;
+}
+
+
+#dados_api{
+    max-height: 300px; 
+    overflow-y: auto; 
+}
+
+#formulario{
+    min-height: 300px !important;
+}
+
+@media (max-width: 900px) {
+    .tamanho{
+        width: 100%;
+    }
+    .tamanho-2{
+        width: 100%;
+    }
+
+    #formulario{
+        flex-direction: column !important;
+    }
+
+  }
