@@ -4,10 +4,8 @@ Este projeto é uma API desenvolvida em Python que consome a biblioteca **Gemini
 - [Sobre o Projeto](#sobre-o-projeto)
 - [Pré-requisitos](#pré-requisitos)
 - [Instalação](#instalação)
-- [Uso](#uso)
 - [Endpoints da API](#endpoints-da-api)
-- [Contribuindo](#contribuindo)
-- [Licença](#licença)
+
 
 ## Sobre o Projeto
 
@@ -44,5 +42,7 @@ Antes de começar, certifique-se de ter instalado as seguintes ferramentas:
     ```.env
     API_KEY = SUA_CHAVE_API
 
+## Após seguir esses passos o código fonte já vai estar configurado e podendo ser editado! Agora fique com as instruções para consumir de nossa API de forma idependente sem a necessidade de clonar o repositório.
 
+## Sustainability Scan API
 
