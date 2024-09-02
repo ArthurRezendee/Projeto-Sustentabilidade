@@ -10,7 +10,7 @@ genai.configure(api_key=os.environ['API_KEY'])
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/ong/', methods=['POST'])
+@app.route('/sustainability/', methods=['POST'])
 def dados_produto():
     dados = request.get_json()
     model = genai.GenerativeModel("gemini-1.5-flash")
