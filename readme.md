@@ -42,7 +42,7 @@ Antes de começar, certifique-se de ter instalado as seguintes ferramentas:
     ```.env
     API_KEY = SUA_CHAVE_API
 
-## Após seguir esses passos o código fonte já vai estar configurado e podendo ser editado! Agora fique com as instruções para consumir de nossa API de forma idependente sem a necessidade de clonar o repositório.
+# Após seguir esses passos o código fonte já vai estar configurado e podendo ser editado! Agora fique com as instruções para consumir de nossa API de forma idependente sem a necessidade de clonar o repositório.
 
 ## Sustainability Scan API
 
