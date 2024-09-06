@@ -56,7 +56,7 @@
                 <fieldset >
                   <legend class="text-success">Digite aqui o nome do produto</legend>
                   <div class="mb-3">
-                    <input type="text" id="produto" class="form-control">
+                    <input type="text" onkeypress="verificarEnter(event)" id="produto" class="form-control">
                   </div>
                  
                   <button type="button" class="btn btn-success" id="enviar">Escanear</button>
@@ -126,11 +126,22 @@
     
     <script>
 
+        document.getElementById('input').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+          });
+
         $(document).ready(function(){
             $('.loading-wrapper').hide()
             $("#itens").hide()
         })
 
+        function verificarEnter(event) {
+  
+            if (event.keyCode === 13) {
+                enviar()
+            }
+          }
     
         function enviar(){
             let produto = $('#produto').val().trim()
